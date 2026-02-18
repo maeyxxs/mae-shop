@@ -986,3 +986,302 @@ Teşekkürler.`;
 }
 </script>
 <!-- ===== /MAİL İLE SİPARİŞ ===== -->
+<!-- ===== PROFESYONEL ALT BÖLÜMLER ===== -->
+
+<style>
+.section{margin-top:60px}
+.section h2{font-size:26px;margin-bottom:18px}
+
+.aboutBox{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:20px;
+  padding:24px;
+  backdrop-filter:blur(12px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+
+.skills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:12px;
+}
+
+.skill{
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(168,85,247,0.15);
+  border:1px solid rgba(168,85,247,0.4);
+  font-size:13px;
+}
+
+.faqItem{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:16px;
+  padding:16px;
+  margin-bottom:12px;
+  cursor:pointer;
+  transition:.25s;
+}
+.faqItem:hover{background:rgba(255,255,255,0.08)}
+
+.faqAnswer{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .3s ease;
+  font-size:14px;
+  opacity:.8;
+  margin-top:8px;
+}
+
+footer{
+  margin-top:70px;
+  padding:26px 12px;
+  text-align:center;
+  opacity:.7;
+  font-size:13px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+#topBtn{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#a855f7;
+  border:none;
+  color:white;
+  padding:12px 16px;
+  border-radius:999px;
+  cursor:pointer;
+  display:none;
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+#topBtn:hover{transform:scale(1.08)}
+.reveal{opacity:0;transform:translateY(40px);transition:all .8s}
+.reveal.show{opacity:1;transform:translateY(0)}
+</style>
+
+<!-- HAKKIMDA -->
+<div class="section reveal">
+  <h2>👋 Hakkımda</h2>
+  <div class="aboutBox">
+    Merhaba, ben <b>Efe</b>.  
+    Modern, dikkat çekici ve profesyonel <b>logo • pfp • banner</b> tasarımları
+    hazırlıyorum. Amacım her müşteriye özgün ve kaliteli bir tasarım sunmak.
+
+    <div class="skills">
+      <div class="skill">Logo Design</div>
+      <div class="skill">PFP</div>
+      <div class="skill">Banner</div>
+      <div class="skill">Photoshop</div>
+      <div class="skill">Minimal & Neon</div>
+    </div>
+  </div>
+</div>
+
+<!-- SSS -->
+<div class="section reveal">
+  <h2>❓ Sık Sorulan Sorular</h2>
+
+  <div class="faqItem" onclick="toggleFAQ(this)">
+    Teslim süresi ne kadar?
+    <div class="faqAnswer">Genellikle 1-3 gün içinde teslim edilir.</div>
+  </div>
+
+  <div class="faqItem" onclick="toggleFAQ(this)">
+    Revize hakkı var mı?
+    <div class="faqAnswer">Evet, tüm paketlerde ücretsiz revize bulunmaktadır.</div>
+  </div>
+
+  <div class="faqItem" onclick="toggleFAQ(this)">
+    Dosyalar hangi formatta veriliyor?
+    <div class="faqAnswer">PNG yüksek kalite + isteğe bağlı PSD verilir.</div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="reveal">
+  © 2026 MAE Shop • Tüm hakları saklıdır  
+  <br>
+  İletişim: <b>cawse31@gmail.com</b>
+</footer>
+
+<!-- YUKARI ÇIK -->
+<button id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+function toggleFAQ(el){
+  const ans = el.querySelector(".faqAnswer");
+  ans.style.maxHeight = ans.style.maxHeight ? null : ans.scrollHeight + "px";
+}
+
+window.addEventListener("scroll",()=>{
+  document.getElementById("topBtn").style.display =
+    window.scrollY > 300 ? "block" : "none";
+});
+
+const reveals = document.querySelectorAll(".reveal");
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting) e.target.classList.add("show");
+  });
+});
+reveals.forEach(r=>obs.observe(r));
+</script>
+
+<!-- ===== /PROFESYONEL ALT BÖLÜMLER ===== -->
+<!-- ===== AÇILIŞ LOGO ANİMASYONU (PRELOADER) ===== -->
+<style>
+#preloader{
+  position:fixed;
+  inset:0;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:99999;
+  transition:opacity .8s ease, visibility .8s;
+}
+
+#preloader.hide{
+  opacity:0;
+  visibility:hidden;
+}
+
+#preloader img{
+  width:120px;
+  animation:logoIntro 2.2s ease forwards;
+  filter: drop-shadow(0 0 25px rgba(168,85,247,.6));
+}
+
+@keyframes logoIntro{
+  0%{
+    transform:scale(.6) translateY(20px);
+    opacity:0;
+    filter:blur(8px) drop-shadow(0 0 0 rgba(168,85,247,0));
+  }
+  60%{
+    transform:scale(1.08) translateY(0);
+    opacity:1;
+    filter:blur(0) drop-shadow(0 0 35px rgba(168,85,247,.9));
+  }
+  100%{
+    transform:scale(1);
+    filter:drop-shadow(0 0 18px rgba(168,85,247,.6));
+  }
+}
+</style>
+
+<div id="preloader">
+  <img src="logo.png" alt="MAE Logo">
+</div>
+
+<script>
+window.addEventListener("load",()=>{
+  setTimeout(()=>{
+    document.getElementById("preloader").classList.add("hide");
+  }, 2200);
+});
+</script>
+<!-- ===== /AÇILIŞ LOGO ANİMASYONU ===== -->
+<!-- ===== MOUSE GLOW + CLICK SPARK + CLICK SOUND ===== -->
+<style>
+  #mouseGlow{
+    position: fixed;
+    width: 520px;
+    height: 520px;
+    pointer-events: none;
+    transform: translate(-50%,-50%);
+    background: radial-gradient(circle, rgba(168,85,247,0.20), transparent 65%);
+    filter: blur(2px);
+    mix-blend-mode: screen;
+    z-index: 2; /* içerik üstüne hafif gelsin ama tıklamayı engellemez */
+  }
+
+  .spark{
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    pointer-events: none;
+    z-index: 3;
+    background: rgba(255,255,255,0.95);
+    box-shadow:
+      0 0 18px rgba(168,85,247,0.9),
+      0 0 38px rgba(168,85,247,0.45);
+    transform: translate(-50%,-50%);
+    animation: sparkPop .55s ease-out forwards;
+  }
+
+  .spark::before{
+    content:"";
+    position:absolute;
+    inset:-16px;
+    border-radius:999px;
+    background: radial-gradient(circle, rgba(168,85,247,0.25), transparent 60%);
+    filter: blur(2px);
+  }
+
+  @keyframes sparkPop{
+    0%   { opacity:0; transform:translate(-50%,-50%) scale(0.6); }
+    20%  { opacity:1; transform:translate(-50%,-50%) scale(1.2); }
+    100% { opacity:0; transform:translate(-50%,-50%) scale(2.6); }
+  }
+</style>
+
+<div id="mouseGlow"></div>
+
+<script>
+  // 1) Mouse glow takip
+  const glow = document.getElementById("mouseGlow");
+  window.addEventListener("mousemove", (e) => {
+    glow.style.left = e.clientX + "px";
+    glow.style.top  = e.clientY + "px";
+  });
+
+  // 2) Tıklayınca spark + ses
+  let audioCtx = null;
+
+  function playClickSound(){
+    // Tarayıcılar sesi user-gesture ile açar: click ilk tetikleyici
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    const t = audioCtx.currentTime;
+
+    const osc = audioCtx.createOscillator();
+    const gain = audioCtx.createGain();
+
+    // “whoosh/click” gibi kısa bir ses
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(520, t);
+    osc.frequency.exponentialRampToValueAtTime(220, t + 0.10);
+
+    gain.gain.setValueAtTime(0.0001, t);
+    gain.gain.exponentialRampToValueAtTime(0.18, t + 0.01);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t + 0.14);
+
+    osc.connect(gain);
+    gain.connect(audioCtx.destination);
+
+    osc.start(t);
+    osc.stop(t + 0.15);
+  }
+
+  function sparkAt(x, y){
+    const s = document.createElement("div");
+    s.className = "spark";
+    s.style.left = x + "px";
+    s.style.top  = y + "px";
+    document.body.appendChild(s);
+    setTimeout(() => s.remove(), 600);
+  }
+
+  // Hem mouse click hem touch için
+  window.addEventListener("pointerdown", (e) => {
+    sparkAt(e.clientX, e.clientY);
+    playClickSound();
+  }, { passive:true });
+</script>
+<!-- ===== /MOUSE GLOW + CLICK SPARK + CLICK SOUND ===== -->
