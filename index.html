@@ -1285,3 +1285,48 @@ window.addEventListener("load",()=>{
   }, { passive:true });
 </script>
 <!-- ===== /MOUSE GLOW + CLICK SPARK + CLICK SOUND ===== -->
+<!-- ===== PREMIUM BUTTON HOVER GLOW ===== -->
+<style>
+/* Tüm butonlara uygula */
+button,
+.btn,
+a.btn{
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* Hover’da hafif büyüme */
+button:hover,
+.btn:hover,
+a.btn:hover{
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 35px rgba(168,85,247,0.35);
+}
+
+/* İçinden geçen mor ışık efekti */
+button::after,
+.btn::after,
+a.btn::after{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-120%;
+  width:120%;
+  height:100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(168,85,247,0.45),
+    transparent
+  );
+  transition: left .6s ease;
+}
+
+button:hover::after,
+.btn:hover::after,
+a.btn:hover::after{
+  left:120%;
+}
+</style>
+<!-- ===== /PREMIUM BUTTON HOVER GLOW ===== -->
